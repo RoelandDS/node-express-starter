@@ -1,10 +1,15 @@
 'use strict';
+const path = require('path');
 const Express = require('express');
 const Morgan = require('morgan');
 const Moment = require('moment');
 const Chalk = require('chalk');
 
 var app = Express();
+
+// setting view engine
+app.set('views', path.join(__dirname, '/../views'));
+app.set('view engine', 'pug');
 
 // middleware
 app.use(requestLogger());
