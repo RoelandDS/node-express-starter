@@ -7,4 +7,13 @@ html
     link(rel='stylesheet', href='/css/bootstrap.min.css')
   body
     .container.container-fluid
+      nav.navbar.navbar-default
+        .container-fluid
+          ul.nav.navbar-nav
+            li
+              a(href='/') Home
+            li
+              a(href='/newBlog') New
+              
+    .container.container-fluid
       block content

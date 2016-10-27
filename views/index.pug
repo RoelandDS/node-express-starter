@@ -1,4 +1,15 @@
 extends layout
 
 block content
-  p Hello #{name}!
+  .page-header
+    h1 Our blogs
+
+  for blog in blogs
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+          | #{blog.title}
+      .panel-body
+        | #{blog.blogBody}
+      .panel-footer
+        | #{blog.name}
