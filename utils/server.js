@@ -5,6 +5,9 @@ const Morgan = require('morgan');
 const Moment = require('moment');
 const Chalk = require('chalk');
 const BodyParser = require('body-parser');
+const Mongoose = require('mongoose');
+
+const Config = require('./../config/development');
 
 var app = Express();
 
@@ -17,6 +20,13 @@ app.use(requestLogger());
 app.use(Express.static(path.join(__dirname, '/../public')));
 app.use(BodyParser.urlencoded({ extended: true }));
 app.use(BodyParser.json());
+
+// mongodb connection
+Mongoose.connect(Config.mongo.uri, Config.mongo.options);
+Mongoose.connection.on('error', (err) => {
+  console.log('MongoDB connection error: ', err);
+  process.exit(-1);
+});
 
 function requestLogger() {
   Morgan.token('datetime', function(req, res) {

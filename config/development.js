@@ -4,5 +4,8 @@
 // ==================================
 module.exports = {
   port: 4000,
-  domain: 'http://localhost:4000'
+  domain: 'http://localhost:4000',
+  mongo: {
+    uri: 'mongodb://localhost/nodesquad-blog'
+  }
 };
