@@ -2,11 +2,11 @@
 const Express = require('express');
 const Config = require('./config/development');
 
+const Main = require('./routes/main');
+
 var app = Express();
 
-app.get('/', (req, res, next) => {
-  res.status(200).send('Hello world!');
-});
+app.use('/', Main);
 
 app.listen(Config.port, () => {
   console.log('app running on port => ', Config.port);
