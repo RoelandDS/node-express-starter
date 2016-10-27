@@ -1,0 +1,21 @@
+extends layout
+
+block title
+  title Create Blog Post
+
+block content
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title new blog
+    .panel-body
+      form(action='/newBlog' method='POST', enctype="application/x-www-form-urlencoded")
+        fieldset.form-group
+          label(for='title') Title
+          input#title.form-control(type='text', name='title', placeholder='Enter blog title')
+        fieldset.form-group
+          label(for='blogBody') Blog body
+          textarea#blogBody.form-control(rows='10', name='blogBody')
+        fieldset.form-group
+          label(for='name') Name
+          input#name.form-control(type='text', name='name', placeholder='Enter name')
+        input.btn.btn-primary(type='submit', value='Submit')

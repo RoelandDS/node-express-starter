@@ -4,6 +4,7 @@ const Express = require('express');
 const Morgan = require('morgan');
 const Moment = require('moment');
 const Chalk = require('chalk');
+const BodyParser = require('body-parser');
 
 var app = Express();
 
@@ -13,6 +14,9 @@ app.set('view engine', 'pug');
 
 // middleware
 app.use(requestLogger());
+app.use(Express.static(path.join(__dirname, '/../public')));
+app.use(BodyParser.urlencoded({ extended: true }));
+app.use(BodyParser.json());
 
 function requestLogger() {
   Morgan.token('datetime', function(req, res) {
