@@ -21,6 +21,11 @@ let blog = new Schema({
     type: String,
     required: true
   },
+  comments: [{
+    name:{type: String},
+    comment: {type: String},
+    commentDate: {type: Date, default: new Date()}
+  }],
   uploadDate: {
     type: Date,
     default: new Date()

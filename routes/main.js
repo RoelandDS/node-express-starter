@@ -7,6 +7,8 @@ Router.get('/', Blog.getAllBlogs);
 
 Router.get('/newBlog', Blog.getNewBlog);
 Router.post('/newBlog', Blog.saveNewBlog);
+Router.get('/blog/:id', Blog.getBlogDetail);
+Router.post('/newComment/:id', Blog.saveComment)
 
 
 module.exports = Router;
